@@ -1,2 +1,3 @@
-# e-commerce-back-end
-E-Commerce back end using Express.js, Sequelize &amp; MySQL.
+# E-Commerce Back End
+
+> E-Commerce back end using Express.js, Sequelize &amp; MySQL.
