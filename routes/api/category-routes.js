@@ -27,7 +27,7 @@ router.get("/:id", async (req, res) => {
   // be sure to include its associated Products
   try {
     const catagoryData = await Category.findByPk(req.params.id, {
-      // include: [{ model: Product }],
+      include: [{ model: Product }],
     });
 
     if (!catagoryData) {
@@ -42,37 +42,39 @@ router.get("/:id", async (req, res) => {
 });
 
 // Create new category
-router.post("/", (req, res) => {
-  Category.create(req.body)
-    .then((newCategory) => {
-      res.json(newCategory);
-    })
-    .catch((err) => {
-      res.json(err);
+router.post("/", async (req, res) => {
+  try {
+    const newCategory = await Category.create({
+      category_name: req.body.category_name,
     });
+    if (newCategory) {
+      res.status(200).json(newCategory);
+    }
+  } catch (error) {
+    res.json(err);
+  }
 });
 
+// Update catgory by ID
 router.put("/:id", async (req, res) => {
-  // update a category by its `id` value
-  Category.update(
-    {
-      // All the fields you can update and the data attached to the request body.
-      category_name: req.body.category_name,
-    },
-    {
-      // Gets a category based on the id given in the request parameters
-      where: {
-        id: req.params.id,
+  try {
+    const updatedCategory = await Category.update(
+      {
+        category_name: req.body.category_name,
       },
+      {
+        // Gets a category based on the id given in the request parameters
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    if (updatedCategory) {
+      res.status(200).json(updatedCategory);
     }
-  )
-    .then((updatedCategory) => {
-      res.json(updatedCategory);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.json(err);
-    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.delete("/:id", async (req, res) => {
