@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
     });
 
     if (!productData) {
-      res.status(404).json({ message: "No product found" });
+      res.status(404).json({ message: "No products found" });
       return;
     }
 
