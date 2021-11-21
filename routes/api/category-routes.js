@@ -17,7 +17,6 @@ router.get("/", async (req, res) => {
     }
 
     res.status(200).json(catagoryData);
-    res.json("Hello");
   } catch (err) {
     res.status(500).json(err);
   }
@@ -42,12 +41,18 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// router.post("/", (req, res) => {
-//   // create a new category
-// });
+// Create new category
+router.post("/", (req, res) => {
+  Category.create(req.body)
+    .then((newCategory) => {
+      res.json(newCategory);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
 
 router.put("/:id", async (req, res) => {
-  console.log("here");
   // update a category by its `id` value
   Category.update(
     {
