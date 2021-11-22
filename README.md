@@ -30,9 +30,9 @@
 
 ## Features
 
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+- Create, View, Update and Delete Products
+- Create, View, Update and Delete Categories
+- Create, View, Update and Delete Tags
 
 ## Screenshots
 
@@ -42,7 +42,7 @@
 
 This project requires Node.js and MySQL to be installed.
 
-Once project has been cloned run the following in the command line to install the project dependencies - Sequelize, MySQL2, Express.js and Dotenv:
+Once project has been cloned, run the following in the command line to install the project dependencies - Sequelize, MySQL2, Express.js and Dotenv:
 
 ```
 npm install
@@ -68,7 +68,7 @@ Check that your ecommerce_db database has been created by using the following co
 SHOW DATABASES;
 ```
 
-Once it has been created, exit the MySQL command line.
+Once the database has been created, exit the MySQL command line.
 
 ## Usage
 
@@ -87,6 +87,8 @@ or
 
 node server.js
 ```
+
+And now your e-commerce back end is ready to go!
 
 ## Contact
 
