@@ -1,7 +1,7 @@
 # E-Commerce Back End
 
 > E-Commerce back end using Express.js, Sequelize &amp; MySQL.
-> Demo [_here_](https://www.example.com).
+> Demo [_here_](https://watch.screencastify.com/v/S253ikEAlZHQgpfVjjkS).
 
 ## Table of Contents
 
@@ -59,7 +59,7 @@ mysql -u root -p
 Enter your MySQL password when prompted. Set up your database with the following command:
 
 ```
-SOURCE db/schema.sql
+SOURCE db/schema.sql;
 ```
 
 Check that your ecommerce_db database has been created by using the following command:
@@ -75,6 +75,10 @@ Once the database has been created, exit the MySQL command line.
 Set up test seeds for the database by executing:
 
 ```
+npm run seed
+
+or
+
 node seeds/index.js
 ```
 
